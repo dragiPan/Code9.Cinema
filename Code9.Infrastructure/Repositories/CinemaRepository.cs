@@ -18,16 +18,18 @@ namespace Code9.Infrastructure.Repositories
             return await _dbContext.Cinemas.ToListAsync();
         }
 
-        public async void AddCinema(Cinema cinema) 
+        public async Task<Cinema> AddCinema(Cinema cinema)
         {
-            this._dbContext.Add(cinema);
-            await this._dbContext.SaveChangesAsync();
+            _dbContext.Add(cinema);
+            await _dbContext.SaveChangesAsync();
+            return cinema;
         }
 
-        public async void UpdateCinema(Cinema cinema)
+        public async Task<Cinema> UpdateCinema(Cinema cinema)
         {
-            this._dbContext.Update(cinema);
-            await this._dbContext.SaveChangesAsync();
+            _dbContext.Update(cinema);
+            await _dbContext.SaveChangesAsync();
+            return cinema;
         }
     }
 }

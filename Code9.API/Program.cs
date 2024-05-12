@@ -14,7 +14,7 @@ builder.Services.AddDbContext<CinemaDbContext>(options =>
 
 builder.Services.AddScoped<ICinemaRepository ,CinemaRepository>();
 
-builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(typeof(GetAllCinemaHandlers).Assembly));
+builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(typeof(GetAllCinemaHandler).Assembly));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

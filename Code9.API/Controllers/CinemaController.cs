@@ -36,5 +36,26 @@ namespace Code9.API.Controllers
             });
             return Created();
         }
+
+        [HttpPut]
+        public async Task<ActionResult<Cinema>> UpdateCinema(Guid id, UpdateCinemaRequest updateCinemaRequest)
+        {
+            var cinema = new UpdateCinemaCommand
+            {
+                CinemaId = id,
+                Name = updateCinemaRequest.Name,
+                City = updateCinemaRequest.City,
+                Street = updateCinemaRequest.Street,
+                NumberofAuditoriums = updateCinemaRequest.NumberofAuditoriums
+            };
+
+            var result = await _mediator.Send(cinema);
+            if (result == null) 
+            {
+                return NotFound("No cinema found with ID {id}");
+            }
+
+            return Ok(result);
+        }
     }
 }

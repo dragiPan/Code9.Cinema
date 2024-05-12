@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace Code9.Domain.Handlers
 {
-    public class GetAllCinemaHandlers : IRequestHandler<GetAllCinemaQuery, List<Cinema>>
+    public class GetAllCinemaHandler : IRequestHandler<GetAllCinemaQuery, List<Cinema>>
     {
         private readonly ICinemaRepository _cinemaRepository;
 
-        public GetAllCinemaHandlers (ICinemaRepository cinemaRepository)
+        public GetAllCinemaHandler (ICinemaRepository cinemaRepository)
         {
             _cinemaRepository = cinemaRepository;
         }

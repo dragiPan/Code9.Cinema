@@ -10,5 +10,7 @@ namespace Code9.Domain.Interfaces
 
         public Task<Cinema> UpdateCinema(Cinema cinema);
         public Task<Cinema> GetCinemaById(Guid cinemaId);
+
+        public Task<bool> DeleteCinema(int id);
     }
 }

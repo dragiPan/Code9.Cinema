@@ -2,6 +2,7 @@
 using Code9.Domain.Commands;
 using Code9.Domain.Models;
 using Code9.Domain.Queries;
+using Code9Domain.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -56,6 +57,18 @@ namespace Code9.API.Controllers
             }
 
             return Ok(result);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteCinema(int id)
+        {
+            var result = await _mediator.Send(new DeleteCinemaCommand(id));
+            if (result)
+            {
+                return NoContent();
+            }
+
+            return NotFound();
         }
     }
 }
